@@ -1,0 +1,81 @@
+.clientM-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-header {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+}
+
+.topNav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80rpx;
+  background-color: #0faeff;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
+}
+
+.icon-arrow-left {
+  margin-left: 10rpx;
+}
+
+.icon-jia {
+  margin-right: 10rpx;
+}
+
+.search {
+  width: 90%;
+  height: 100rpx;
+  align-self: center;
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  border-radius: 20rpx;
+  border: 1px #ccc solid;
+  width: 100%;
+}
+
+.client-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 180rpx;
+}
+
+.card-container {
+  /* height: 400rpx; */
+  width: 98%;
+  border: 4rpx #ccc solid;
+  border-radius: 20rpx;
+  box-shadow: 10rpx 10rpx 5rpx #ccc;
+  align-self: center;
+  margin-bottom: 18rpx;
+}
+
+.card-header {
+  height: 100rpx;
+  font-size: 50rpx;
+  width: 100%;
+  border-bottom: 4rpx #ccc solid;
+  display: flex;
+  align-items: center;
+}
+.card-header .title,.cont text,.cont title{
+  margin-left: 16rpx;
+}
+.cont{
+  padding-top: 20rpx;
+}
+.cont title{
+  margin-left: 36rpx;
+  width: 530rpx;
+}

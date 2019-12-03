@@ -1,0 +1,18 @@
+<view class="main">
+  <view class="main-container">
+    <view class="main-list">
+      <view class="main-box" bindtap="kpInvoice">
+        <span class="iconfont icon-huojian"></span>
+        <text>手动开票</text>
+      </view>
+      <view class="main-box" bindtap="clientManage">
+        <span class="iconfont icon-kehu"></span>
+        <text>客户管理</text>
+      </view>
+      <view class="main-box" bindtap="zengzhishui">
+        <span class="iconfont icon-fapiaoguanli"></span>
+        <text>发票管理</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/invoiceManage/invoiceManage",
+    "pages/clientManage/addClient/addClient",
+    "pages/index/index",
+    "pages/clientManage/clientManage",
+    "pages/kpInvoice/kpInvoice",
+    "pages/userLogin/login",
+    "pages/userRegist/regist",
+    "pages/user/user"
+  ],
+  "tabBar": {
+    "color": "#7a7e83",
+    "selectedColor": "#0faeff",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/resource/img/home.png",
+        "selectedIconPath": "pages/resource/img/homeHL.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "pages/resource/img/user.png",
+        "selectedIconPath": "pages/resource/img/userHL.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "盐业开票",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

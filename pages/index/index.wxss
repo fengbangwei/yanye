@@ -1,0 +1,48 @@
+.main {
+  width: 100%;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.main-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.main-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.main-box span {
+  background: #09f;
+  color: #fff;
+  height: 100rpx;
+  width: 100rpx;
+  font-size: 56rpx;
+  border-radius: 26rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.main-box:nth-child(2) span {
+  background: #f96;
+}
+
+.main-box:nth-child(3) span {
+  background: #f66;
+}
+
+.main-box text {
+  margin-top: 5px;
+  font-size: 24rpx;
+}

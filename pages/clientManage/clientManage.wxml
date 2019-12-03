@@ -1,0 +1,18 @@
+<import src="client-list/client-list-template.wxml" />
+<view class="clientM-container">
+  <view class="client-header">
+    <view class="topNav">
+      <span bindtap="backLeft" class="iconfont icon-arrow-left"></span>
+      <text>客户管理列表</text>
+      <span bindtap="addClient" class="iconfont icon-jia"></span>
+    </view>
+    <view class="search">
+      <input type="text" placeholder="请输入名称" bindfocus="onBindFocus" bindblur="onBindBlur"></input>
+    </view>
+  </view>
+  <view class="client-detail">
+    <block wx:for="{{clientList}}" wx:key="*this" wx:for-item="client">
+      <template is="clientListTemplate" data="{{...client}}"></template>
+    </block>
+  </view>
+</view>

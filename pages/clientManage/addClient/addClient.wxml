@@ -1,0 +1,38 @@
+<view class="add-container">
+  <view class="topNav">
+      <span bindtap="backLeft" class="iconfont icon-arrow-left"></span>
+      <text>客户管理列表</text>
+    </view>
+  <view class="form-item">
+    <view class="uni-form-item uni-row company">
+      <view class="title">发票抬头</view>
+      <input type="text" placeholder="请输入发票抬头"></input>
+    </view>
+    <view class="uni-form-item uni-row">
+      <view class="title">税号</view>
+      <input type="text" placeholder="请输入税号"></input>
+    </view>
+    <view class="uni-form-item uni-row">
+      <view class="title">手机号码</view>
+      <input type="text" placeholder="请输入手机号码"></input>
+    </view>
+    <view class="uni-form-item uni-row">
+      <view class="title">邮箱地址</view>
+      <input type="text" placeholder="请输入邮箱地址"></input>
+    </view>
+    <view class="uni-form-item uni-row">
+      <view class="title address-phone">地址及电话</view>
+      <textarea class="uni-input" auto-height="true" placeholder="请输入地址电话"></textarea>
+    </view>
+    <view class="uni-form-item uni-row">
+      <view class="title bank-number">开户行及账号</view>
+      <textarea class="uni-input" auto-height="true" placeholder="请输入开户行及账号"></textarea>
+    </view>
+  </view>
+  <view class="btn-group">
+    <button class="buttons" type="primary" plain="true" bindtap="addClient">添加</button>
+  <button wx-if="{{isShowButton}}" class="buttons" type="primary" plain="true" bindtap="updateClient">修改</button>
+  <button wx-if="{{isShowButton}}" class="buttons" type="warn" plain="true" bindtap="removeClient">删除</button>
+  </view>
+  
+</view>

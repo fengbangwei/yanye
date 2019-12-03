@@ -1,0 +1,35 @@
+/* pages/invoiceManage/invoiceManage.wxss */
+.invoiceM-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+}
+.topNav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80rpx;
+  background-color: #0faeff;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
+}
+.topNav text{
+  margin-right: 220rpx;
+}
+.icon-arrow-left {
+  margin-left: 10rpx;
+}
+.search {
+  width: 90%;
+  height: 100rpx;
+  align-self: center;
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  border-radius: 20rpx;
+  border: 1px #ccc solid;
+  width: 100%;
+}
