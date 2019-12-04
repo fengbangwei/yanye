@@ -11,7 +11,7 @@
       </view>
       <view class="main-box" bindtap="zengzhishui">
         <span class="iconfont icon-fapiaoguanli"></span>
-        <text>发票管理222</text>
+        <text>发票管理</text>
       </view>
     </view>
   </view>
