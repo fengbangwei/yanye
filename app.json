@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/invoiceManage/invoiceManage",
     "pages/clientManage/addClient/addClient",
-    "pages/index/index",
     "pages/clientManage/clientManage",
     "pages/kpInvoice/kpInvoice",
     "pages/userLogin/login",
