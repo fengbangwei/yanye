@@ -12,7 +12,9 @@
   </view>
   <view class="client-detail">
     <block wx:for="{{clientList}}" wx:key="*this" wx:for-item="client">
+      <view bindtap="bianji" data-bean="{{client}}">
       <template is="clientListTemplate" data="{{...client}}"></template>
+      </view>
     </block>
   </view>
 </view>

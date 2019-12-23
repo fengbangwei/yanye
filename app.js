@@ -1,6 +1,6 @@
 //app.js
 App({
-  appid:"wxa1b422765bb79b9a",
+  appid:"wx8793e8ab1a85f13c",
   secret:"e66f44d3023fb4d821a99de3c0fc72b7",
   onLaunch: function () {
     // 展示本地存储能力
@@ -16,12 +16,16 @@ App({
             if (res.code) {
               //获取openId
               var that = getApp();
-              var getOpenIdUrl = "https://www.gzhtjs.com.cn/WeChat/getopenid?code=" + res.code;
+              let data = {
+                code:res.code
+              };
+              var getOpenIdUrl = "https://www.gzhtjs.com.cn/WeChat/getopenid";
               console.log(getOpenIdUrl)
               wx.request({
                 url: getOpenIdUrl,
+                data:data,
                 method: 'GET',
-                header: { 'content-type': 'application/json' },
+                header: { 'content-type': 'application/x-www-form-urlencoded:charset:utf-8'},
                 success: function (openIdRes) {
                   console.info("获取用户openId成功");
                   console.log(openIdRes)

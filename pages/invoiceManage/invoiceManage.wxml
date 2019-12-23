@@ -1,19 +1,24 @@
 <!--pages/invoiceManage/invoiceManage.wxml-->
-<import src="../clientManage/clientManage.wxss" />
+<import src="../invoiceManage/invoiceListTemplate.wxml" />
 <view class="invoiceM-container">
   <view class="topNav">
     <span bindtap="backLeft" class="iconfont icon-arrow-left"></span>
-    <text>开票记录</text>
+    <text style="position:relative;right:20px;">开票记录</text>
   </view>
   <view class="search">
-    <input type="text" placeholder="请输入需要查询的公司名称" bindfocus="onBindFocus" bindblur="onBindBlur"></input>
+    <input type="text" placeholder="请输入需要查询的公司名称" bindfocus="onBindFocus" bindblur="onBindBlur" bindinput="a"></input>
   </view>
   <view class="tui-picker-content">
-    <view class="tui-picker-name">日期选择器（选择年月日）</view>
     <picker mode="date" value="{{date}}" bindchange="changeDate">
-      <view class="tui-picker-detail">
-        国庆出游: {{date}}
+      <view class="tui-picker-detail" style="border:1px solid gray;text-align:center;      border-radius:25px">
+        {{date}}
       </view>
     </picker>
   </view>
+
+  <view class="wrap" style="margin-left: 0px;margin-right: 0px;">
+				<block class="div-table" wx:for="{{tableList}}" wx:key="*this" wx:for-item="item">
+						<template is="invoiceListTemplate" data="{{...item}}"></template>
+				</block>
+			</view>
 </view>
