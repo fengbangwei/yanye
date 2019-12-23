@@ -1,13 +1,16 @@
 {
   "pages": [
-    "pages/invoiceManage/invoiceManage",
-    "pages/clientManage/addClient/addClient",
-    "pages/index/index",
-    "pages/clientManage/clientManage",
+    "pages/goods/goodsList/goodsList",
+    "pages/alphabetList/alphabetList",
+    "pages/goods/goodsDetail/goodsDetail",
     "pages/kpInvoice/kpInvoice",
     "pages/userLogin/login",
-    "pages/userRegist/regist",
-    "pages/user/user"
+    "pages/index/index",
+    "pages/clientManage/clientManage",
+    "pages/user/user",
+    "pages/invoiceManage/invoiceManage",
+    "pages/clientManage/addClient/addClient",
+    "pages/userRegist/regist"
   ],
   "tabBar": {
     "color": "#7a7e83",

@@ -1,2 +1,6 @@
 <!--pages/user/user.wxml-->
 <text>pages/user/user.wxml</text>
+<view>
+<input type="text" bindinput="inputedit" data-name="info" value="{{info}}" placeholder="请输入名称" />
+</view>
+

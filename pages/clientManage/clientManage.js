@@ -1,4 +1,3 @@
-// pages/clientManage/clientManage.js
 Page({
 
   /**
@@ -6,6 +5,7 @@ Page({
    */
   data: {
     isShowButton:false,
+    info:"",
     clientList:[
       {
         "ghf_mc":"贵州天香湖酒业有限公司",
@@ -66,6 +66,20 @@ Page({
     wx.navigateTo({
       url: '../clientManage/addClient/addClient',
     })
+  },
+  inputedit: function(e){
+    console.log(e)
+    let that = this;
+    let dataset = e.currentTarget.dataset;
+    let value = e.detail.value;
+    console.log(value)
+    let name = dataset.name;
+    console.log(name)
+    that.data[name] = value;
+    that.setData({
+      info: that.data[name]
+    })
+    console.log(that.data[name])
   },
   /**
    * 生命周期函数--监听页面加载

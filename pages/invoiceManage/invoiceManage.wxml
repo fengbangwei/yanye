@@ -1,5 +1,3 @@
-<!--pages/invoiceManage/invoiceManage.wxml-->
-<import src="../clientManage/clientManage.wxss" />
 <view class="invoiceM-container">
   <view class="topNav">
     <span bindtap="backLeft" class="iconfont icon-arrow-left"></span>

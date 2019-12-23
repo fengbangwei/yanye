@@ -1,0 +1,47 @@
+<view class="goods-container">
+<view class="topNav">
+      <span bindtap="backLeft" class="iconfont icon-arrow-left" style="color:#fff;"></span>
+      <text style="margin-left: -16px;">商品明细</text>
+      <span></span>
+    </view>
+  <view class="uni-form-item uni-row">
+    <view class="title">商品名称</view>
+    <view class=" goods" bindtap="goodsCheck">
+      <text>{{goodsList.xmmc?goodsList.xmmc:'请选择'}}</text>
+      <span class="iconfont icon-arrow-left"></span>
+    </view>
+  </view>
+  <view class="uni-form-item uni-row">
+    <view class="title">规格型号</view>
+    <view class=" goods">
+      <input class="uni-input" type="text" value="{{goodsList.ggxh}}" />
+    </view>
+    <span></span>
+  </view>
+  <view class="uni-form-item uni-row">
+    <view class="title">计量单位</view>
+    <!-- <text>{{goodsList.ggxh}}</text> -->
+    <view class=" goods">
+      <!-- <text>{{goodsList.ggxh}}</text> -->
+      <input class="uni-input" type="text" value="{{goodsList.dw}}" />
+    </view>
+    <span></span>
+  </view>
+  <view class="uni-form-item uni-row">
+    <view class="title">数量</view>
+    <input class="uni-input" maxlength="8" placeholder="请输入" type="number" value="{{goodsList.xmsl}}" />
+  </view>
+  <view class="uni-form-item uni-row">
+    <view class="title">单价</view>
+    <input class="uni-input" maxlength="8" placeholder="请输入" type="number" value="{{goodsList.xmdj}}" />
+  </view>
+  <view class="uni-form-item uni-row">
+    <view class="title">金额</view>
+    <text>{{Money}}</text>
+  </view>
+  <view class="uni-form-item uni-row">
+    <view class="title">税率</view>
+    <text>{{goodsList.sl*100}}%</text>
+  </view>
+  <button class="buttons" type="primary" plain="true" bindtap="sure">确定</button>
+</view>

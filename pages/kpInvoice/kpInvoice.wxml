@@ -1,92 +1,89 @@
-<view class="kp-main">
-  <view class="kp-header">
-    <view class="header-img">
-      <image src="../resource/img/weixin.png" alt="" />
-    </view>
-    <view class="header-title">
-      <h4>盐业公司</h4>
-    </view>
-  </view>
+<form class="kp-main" bindsubmit="openInvoice">
   <view class="kp-container">
+    <view class="topNav">
+      <span bindtap="backLeft" class="iconfont icon-arrow-left" style="color:#fff;"></span>
+      <text style="margin-left: -28px;">手动开票</text>
+      <span></span>
+    </view>
     <view class="cont">
-      <view class="container-select">
-        <view class="container-option" :class="{'select-active':selectDataForm}" bindtap="selectForm(1)">
-          <view>公司抬头</view>
+      <view class="topTab">
+        <view bindtap="switchTab" class="{{selectDataForm?'select-active':''}}" data-tab="company">公司抬头
         </view>
-        <view class="container-option" :class="{'select-active':!selectDataForm}" bindtap="selectForm(2)">
-          <view>个人或其他</view>
-        </view>
+        <view bindtap="switchTab" class="{{!selectDataForm?'select-active':''}}" data-tab="person">个人和其他</view>
       </view>
       <view class="form-list">
-        <view class="form-item" v-if="!secondSetp">
-          <template v-if="selectDataForm">
+        <view class="form-item" wx:if="{{!secondSetp}}">
+          <view wx:if="{{selectDataForm}}" bindsubmit='openInvoice'>
             <view class="uni-form-item uni-row company">
               <view class="title">发票抬头</view>
-              <input class="uni-input" focus placeholder="请输入发票抬头(必填)" input="querytaxnoAndname" v-model="formdata.ghf_mc" />
+              <input name="ghf_mc" class="uni-input" focus placeholder="请输入发票抬头(必填)"  bindinput="bindVal" data-name="ghf_mc" value="{{formdata.ghf_mc}}" />
               <view bindtap="selectClient">
                 <span class="iconfont icon-jia"></span>
               </view>
-              <view class="companyList" v-show="formdata.ghf_mc">
-                <view class="companyItem" v-show="!companyList">
+              <view class="companyList" wx:if="{{false}}">
+                <view class="companyItem" wx:if="{{companyList.length == 0}}">
                   <text class="companyName" style="text-align: center;">未查询到数据</text>
                 </view>
-                <view class="companyItem" :key="item.name" v-for="item in companyList" click="queryCompanyInfo(item.name)">
+                <view class="companyItem" :key="item.name" wxfor="item in companyList" click="queryCompanyInfo(item.name)">
                   <text class="companyName">{{item.name}}</text>
                 </view>
               </view>
             </view>
             <view class="uni-form-item uni-row">
               <view class="title">税号</view>
-              <input class="uni-input" placeholder="请输入税号(必填)" v-model="formdata.ghf_nsrsbh" />
+              <input bindinput="bindVal" data-name="ghf_nsrsbh" class="uni-input" name="ghf_nsrsbh" placeholder="请输入税号(必填)" value="{{formdata.ghf_nsrsbh}}" />
             </view>
             <view class="uni-form-item uni-row">
               <view class="title">手机号码</view>
-              <input class="uni-input" placeholder="请输入手机号码(必填)" v-model="formdata.ghf_sj" />
+              <input bindinput="bindVal" data-name="ghf_sj" class="uni-input" name="ghf_sj" placeholder="请输入手机号码(必填)" value="{{ formdata.ghf_sj}}" />
             </view>
             <view class="uni-form-item uni-row">
               <view class="title">邮箱地址</view>
-              <input class="uni-input" placeholder="请输入邮箱" v-model="formdata.ghf_email" />
+              <input bindinput="bindVal" data-name="ghf_email" class="uni-input" name="ghf_email" placeholder="请输入邮箱" value="{{ formdata.ghf_email}}" />
             </view>
             <view class="uni-form-item uni-row">
               <view class="title">备注</view>
-              <input class="uni-input" placeholder="选填" v-model="formdata.bz" />
+              <input bindinput="bindVal" data-name="bz" class="uni-input" name="bz" placeholder="选填" value="{{ formdata.bz}}" />
             </view>
-            <view class="uni-form-item uni-row icon-more" bindtap="selectMore">
+            <view class="uni-form-item uni-row icon-more" bindtap="openMore">
               <view class="title">更多发票信息(选填)</view>
-              <span class="iconfont" :class="isFalseMore?'icon-up-':'icon-down'"></span>
+              <span class="{{isShowMore?'iconfont icon-down':'iconfont icon-up-'}}"></span>
             </view>
-            <template v-if="isFalseMore">
+            <view wx:if="{{isShowMore}}">
               <view class="uni-form-item uni-row">
                 <view class="title">地址、电话</view>
-                <textarea class="uni-input" auto-height="true" placeholder="选填" v-model="formdata.ghf_dzdh"></textarea>
+                <textarea name="ghf_dzdh" class="uni-input" auto-height="true" placeholder="选填" value="{{ formdata.ghf_dzdh}}"></textarea>
               </view>
               <view class="uni-form-item uni-row">
                 <view class="title">开户行及账号</view>
-                <textarea class="uni-input" auto-height="true" placeholder="选填" v-model="formdata.ghf_yhzh"></textarea>
+                <textarea name="ghf_yhzh" class="uni-input" auto-height="true" placeholder="选填" value="{{ formdata.ghf_yhzh}}"></textarea>
               </view>
-            </template>
-          </template>
-          <template v-else>
+            </view>
+          </view>
+
+          <view wx:else>
             <view class="uni-form-item uni-row">
               <view class="title">发票抬头</view>
-              <input class="uni-input" focus placeholder="请输入发票抬头(必填)" v-model="formdata.ghf_mc" />
+              <input name="ghf_mc" class="uni-input" focus placeholder="请输入发票抬头(必填)" value="{{ formdata.ghf_mc}}" />
             </view>
             <view class="uni-form-item uni-row">
               <view class="title">手机号码</view>
-              <input class="uni-input" placeholder="请输入手机号码(必填)" v-model="formdata.ghf_sj" />
+              <input name="ghf_sj" class="uni-input" placeholder="请输入手机号码(必填)" value="{{ formdata.ghf_sj}}" />
             </view>
             <view class="uni-form-item uni-row">
               <view class="title">邮箱地址</view>
-              <input class="uni-input" placeholder="请输入邮箱" v-model="formdata.ghf_email" />
+              <input name="ghf_email" class="uni-input" placeholder="请输入邮箱" value="{{ formdata.ghf_email}}" />
             </view>
             <view class="uni-form-item uni-row">
               <view class="title">备注</view>
-              <input class="uni-input" placeholder="选填" v-model="formdata.bz" />
+              <input name="bz" class="uni-input" placeholder="选填" value="{{ formdata.bz}}" />
             </view>
-          </template>
+            
+          </view>
         </view>
-        <view class="form-item" v-else>
-          <template v-if="selectDataForm">
+
+        <view class="form-item" wx:else>
+          <view wx:if="selectDataForm">
             <view class="uni-form-item uni-row">
               <view class="title">发票抬头</view>
               <span>{{formdata.ghf_mc}}</span>
@@ -107,11 +104,11 @@
               <view class="title">备注</view>
               <span>{{formdata.bz}}</span>
             </view>
-            <view class="uni-form-item uni-row icon-more" bindtap="selectMore">
+            <view class="uni-form-item uni-row icon-more" bindtap="openMore">
               <view class="title">更多发票信息(选填)</view>
-              <span class="iconfont" :class="isFalseMore?'icon-down':'icon-arrow-left'"></span>
+              <span class="iconfont" class="{{isShowMore?'icon-down':'icon-up-'}}"></span>
             </view>
-            <template v-if="isFalseMore">
+            <view wx:if="{{isShowMore}}">
               <view class="uni-form-item uni-row">
                 <view class="title">地址、电话</view>
                 <span>{{formdata.ghf_dzdh}}</span>
@@ -120,9 +117,10 @@
                 <view class="title">开户行及账号</view>
                 <span>{{formdata.ghf_yhzh}}</span>
               </view>
-            </template>
-          </template>
-          <template v-else>
+            </view>
+          </view>
+
+          <view wx:else>
             <view class="uni-form-item uni-row">
               <view class="title">发票抬头</view>
               <span>{{formdata.ghf_mc}}</span>
@@ -139,22 +137,24 @@
               <view class="title">备注</view>
               <span>{{formdata.bz}}</span>
             </view>
-          </template>
+          </view>
         </view>
       </view>
     </view>
+
     <view class="form-commodity">
       <view class="commdity-item  commodity-header">
         <text>商品信息</text>
         <text>开票金额(元)</text>
         <text>税率</text>
       </view>
-      <view class="commdity-item" :key="item.xmmc" v-for="item in formdata.goodsList">
+      <view class="commdity-item" :key="item.xmmc" wxfor="item in formdata.goodsList">
         <text>{{item.xmmc}}</text>
         <text>{{item.xmje}}</text>
         <text>{{item.sl}}%</text>
       </view>
     </view>
+
     <view class="add-commity" bindtap="addCommodity">
       <view>
         <span class="iconfont icon-jia"></span>
@@ -168,8 +168,9 @@
       </view>
     </view>
   </view>
+
   <view class="footer">
-    <view v-if="secondSetp">
+    <view wx:if="{{secondSetp}}">
       <button bindtap="firstSetp">上一步</button>
     </view>
     <view class="money">
@@ -177,7 +178,7 @@
       <text class="price">{{totalMoney}}</text>
     </view>
     <view>
-      <button bindtap="sendKpInfo">{{secondSetp?'确定':'下一步'}}</button>
+      <button form-type="submit">{{secondSetp?'确定':'下一步'}}</button>
     </view>
   </view>
-</view>
+</form>

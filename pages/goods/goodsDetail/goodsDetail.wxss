@@ -1,0 +1,93 @@
+.back{
+		background: #f5f5f5;
+		width: 100%;
+	}
+	.goods-container{
+		background: #fff;
+		width: 100%;
+	}
+	.buttons{
+		background: #1E9FFF!important;
+		color: #fff!important;
+	}
+
+.topNav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80rpx;
+  background-color: #0faeff;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
+}
+
+	.form-item .uni-form-item{
+		border-bottom: 2px solid #f5f5f5;
+		align-items: center;
+	}
+	.uni-form-item .title+.uni-input{
+		padding: 0;
+	
+	}
+	
+	.title{
+		width: 225rpx;
+		color: #666;
+	}
+.uni-form-item{	
+		border-bottom: 2px solid #f5f5f5;
+		align-items: center;
+	}
+	
+	.goods{
+		flex: 1;
+		display: flex;
+		justify-content: space-between;
+		padding-right: 15px;
+	}
+	
+	.title+.uni-input{
+		padding: 0;
+	}
+	
+	.title{
+		width: 180rpx;
+		color: #666;
+	}
+
+/* 表单 */
+.uni-form-item{
+	display:flex;
+	width:100%;
+	padding:10rpx 0;
+}
+.uni-form-item .title{
+	padding:10rpx 25rpx;
+}
+.uni-label {
+	width: 210rpx;
+	word-wrap: break-word;
+	word-break: break-all;
+	text-indent:20rpx;
+}
+.uni-input {
+	height: 50rpx;
+	padding: 15rpx 25rpx;
+	line-height:50rpx;
+	font-size:28rpx;
+	background:#FFF;
+	flex: 1;
+}
+
+.uni-form-item .with-fun{
+	display:flex; 
+	flex-wrap:nowrap; 
+	background:#FFFFFF;
+}
+.uni-form-item .with-fun .uni-icon{
+	width:40px; 
+	height:80rpx; 
+	line-height:80rpx; 
+	flex-shrink:0;
+}

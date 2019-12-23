@@ -3,21 +3,13 @@ const app = getApp()
 Page({
   data: {
   },
-
   onLoad: function (params) {
-    var me = this;
-    var redirectUrl = params.redirectUrl;
     // debugger;
-    if (redirectUrl != null && redirectUrl != undefined && redirectUrl != '') {
-      redirectUrl = redirectUrl.replace(/#/g, "?");
-      redirectUrl = redirectUrl.replace(/@/g, "=");
-
-      me.redirectUrl = redirectUrl;
-    }
   },
 
   // 登录  
   doLogin: function (e) {
+    console.log(e)
     var me = this;
     var formObject = e.detail.value;
     var username = formObject.username;
@@ -48,33 +40,22 @@ Page({
         success: function (res) {
           console.log(res.data);
           wx.hideLoading();
-          if (res.data.status == 200) {
+          if (res.data.returncode == "0000") {
+           // debugger
             // 登录成功跳转 
             wx.showToast({
               title: '登录成功',
               icon: 'success',
               duration: 2000
             });
-            // app.userInfo = res.data.data;
-            // fixme 修改原有的全局对象为本地缓存
-            app.setGlobalUserInfo(res.data.data);
             // 页面跳转
-
-            var redirectUrl = me.redirectUrl;
-            if (redirectUrl != null && redirectUrl != undefined && redirectUrl != '') {
-              wx.redirectTo({
-                url: redirectUrl,
-              })
-            } else {
-              wx.redirectTo({
-                url: '../mine/mine',
-              })
-            }
-            
-          } else if (res.data.status == 500) {
+            wx.switchTab({
+              url: '../index/index'
+            })
+          } else if (res.data.returncode == "1111") {
             // 失败弹出框
             wx.showToast({
-              title: res.data.msg,
+              title: res.data.returnmsg,
               icon: 'none',
               duration: 3000
             })
