@@ -7,7 +7,7 @@
       <span bindtap="addClient" class="iconfont icon-jia"></span>
     </view>
     <view class="search">
-      <input type="text" bindinput="inputedit" data-name="info" value="{{info}}" placeholder="请输入名称" />
+      <input type="text" placeholder="请输入名称" bindfocus="onBindFocus" bindblur="onBindBlur" bindinput="sousuo"></input>
     </view>
   </view>
   <view class="client-detail">

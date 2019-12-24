@@ -5,7 +5,7 @@
     <text style="position:relative;right:20px;">开票记录</text>
   </view>
   <view class="search">
-    <input type="text" placeholder="请输入需要查询的公司名称" bindfocus="onBindFocus" bindblur="onBindBlur" bindinput="a"></input>
+    <input type="text" placeholder="请输入需要查询的公司名称"  bindinput="sousuo"></input>
   </view>
   <view class="tui-picker-content">
     <picker mode="date" value="{{date}}" bindchange="changeDate">
@@ -17,7 +17,9 @@
 
   <view class="wrap" style="margin-left: 0px;margin-right: 0px;">
 				<block class="div-table" wx:for="{{tableList}}" wx:key="*this" wx:for-item="item">
-						<template is="invoiceListTemplate" data="{{...item}}"></template>
+            <view bindtap="mingxi" data-bean="{{item}}">
+						    <template is="invoiceListTemplate" data="{{...item}}"></template>
+            </view>
 				</block>
 			</view>
 </view>

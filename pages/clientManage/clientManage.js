@@ -118,6 +118,27 @@ Page({
       }
     })
   },
+  sousuo: function (e) {
+      console.log(e.detail.value)
+      let that = this;
+      wx.request({
+        url: "https://www.gzdzfpy.com.cn/yanyeSystem/findCustomerByLikename",
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'username': 'admin'
+        },
+        data:{
+          customername: e.detail.value
+        },
+        method: 'get',
+        success: function (data) {
+          console.log(data.data.customerList)
+          that.setData({
+            clientList: data.data.customerList
+          })
+        }
+      })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

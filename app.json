@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/invoiceManage/fpmingxi",
     "pages/kpInvoice/kpInvoice",
     "pages/kpInvoice/kpErrorInfo/kpErrorInfo",
     "pages/userLogin/login",
