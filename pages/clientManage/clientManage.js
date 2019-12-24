@@ -4,70 +4,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isShowButton:false,
-    info:"",
-    clientList:[
-      {
-        "ghf_mc":"贵州天香湖酒业有限公司",
-        "ghf_nsrsbh":"91520382MA6HTNDK0F",
-        "ghf_sj":"18186442403",
-        "ghf_email":"2711200265",
-        "ghf_dzdh":"贵阳市延安东路3号智诚大厦A座20楼400-85190900851-28611836",
-        "ghf_yhzh":"中国建设银行贵阳市京瑞支行52001433600052506980"
-      },
-      {
-        "ghf_mc": "贵州航天金穗科技有限公司",
-        "ghf_nsrsbh": "9152010371431591XR",
-        "ghf_sj": "18186442403",
-        "ghf_email": "2711200265",
-        "ghf_dzdh": "贵阳市延安东路3号智诚大厦A座20楼400-85190900851-28611836",
-        "ghf_yhzh": "中国建设银行贵阳市京瑞支行52001433600052506980"
-      },
-      {
-        "ghf_mc": "广州王老吉大健康产业有限公司",
-        "ghf_nsrsbh": "914401015915128836",
-        "ghf_sj": "18186442403",
-        "ghf_email": "2711200265",
-        "ghf_dzdh": "贵阳市延安东路3号智诚大厦A座20楼400-85190900851-28611836",
-        "ghf_yhzh": "中国建设银行贵阳市京瑞支行52001433600052506980"
-      },
-      {
-        "ghf_mc": "贵州天香湖酒业有限公司",
-        "ghf_nsrsbh": "91520382MA6HTNDK0F",
-        "ghf_sj": "18186442403",
-        "ghf_email": "2711200265",
-        "ghf_dzdh": "贵阳市延安东路3号智诚大厦A座20楼400-85190900851-28611836",
-        "ghf_yhzh": "中国建设银行贵阳市京瑞支行52001433600052506980"
-      },
-      {
-        "ghf_mc": "贵州航天金穗科技有限公司",
-        "ghf_nsrsbh": "9152010371431591XR",
-        "ghf_sj": "18186442403",
-        "ghf_email": "2711200265",
-        "ghf_dzdh": "贵阳市延安东路3号智诚大厦A座20楼400-85190900851-28611836",
-        "ghf_yhzh": "中国建设银行贵阳市京瑞支行52001433600052506980"
-      },
-      {
-        "ghf_mc": "广州王老吉大健康产业有限公司",
-        "ghf_nsrsbh": "914401015915128836",
-        "ghf_sj": "18186442403",
-        "ghf_email": "2711200265",
-        "ghf_dzdh": "贵阳市延安东路3号智诚大厦A座20楼400-85190900851-28611836",
-        "ghf_yhzh": "中国建设银行贵阳市京瑞支行52001433600052506980"
-      }
-    ]
+    isShowButton: false,
+    info: "",
+    inputValue: {},
+    clientList: [{
+      "id": "",
+      "ghf_mc": "",
+      "ghf_nsrsbh": "",
+      "ghf_sj": "",
+      "ghf_email": "",
+      "ghf_dzdh": "",
+      "ghf_yhzh": ""
+    }],
+    openInvoice:false
   },
-  backLeft: function () {
+  backLeft: function() {
     wx.navigateBack({
       url: '../index/index',
     })
   },
-  addClient: function(){
+  addClient: function() {
     wx.navigateTo({
       url: '../clientManage/addClient/addClient',
     })
   },
-  inputedit: function(e){
+  inputedit: function(e) {
     console.log(e)
     let that = this;
     let dataset = e.currentTarget.dataset;
@@ -79,61 +40,116 @@ Page({
     that.setData({
       info: that.data[name]
     })
-    console.log(that.data[name])
+  },
+  bianji: function(event) {
+    console.log(event.currentTarget.dataset.bean.ghf_mc);
+    wx.navigateTo({
+      url: '../clientManage/addClient/bianji?ghf_mc=' + event.currentTarget.dataset.bean.ghf_mc + '&ghf_nsrsbh=' + event.currentTarget.dataset.bean.ghf_nsrsbh + '&ghf_dzdh=' + event.currentTarget.dataset.bean.ghf_dzdh + '&ghf_yhzh=' + event.currentTarget.dataset.bean.ghf_yhzh + '&id=' + event.currentTarget.dataset.bean.id + '',
+    })
+
+  },
+  onBindFocus: function(event) {
+
+  },
+  onBindBlur: function(event) {
+    console.log(this)
+  },
+  bindinput: function(e) {
+    console.log(this)
+  },
+  updateValue(e) {
+    let name = e.currentTarget.dataset.name;
+    console.log(name)
+    this.inputValue[name] = e.detail && e.detail.value
+    console.log(this.inputValue)
+    this.setData(this.inputValue)
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function(options) {
+    if (options.openInvoice == 'true'){
+      this.setData({
+        openInvoice:true
+      })
+    }
   },
-
+  addOpenInvoiceInfo(e){
+    let client = e.currentTarget.dataset.bean;
+    var pages = getCurrentPages();
+    console.log(pages)
+    var currPage = pages[pages.length - 1];  //当前页面
+    var prevPage = pages[pages.length - 2]; //上一个页面
+    console.log(prevPage)
+    prevPage.data.formdata.ghf_mc = client.ghf_mc;
+    prevPage.data.formdata.ghf_nsrsbh = client.ghf_nsrsbh;
+    prevPage.data.formdata.ghf_sj = client.ghf_sj;
+    prevPage.data.formdata.ghf_email = client.ghf_email;
+    prevPage.data.formdata.ghf_dzdh = client.ghf_dzdh;
+    prevPage.data.formdata.ghf_yhzh = client.ghf_yhzh;
+    prevPage.setData({
+      formdata: prevPage.data.formdata
+    })
+    wx.navigateBack();
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function() {
+    let that = this;
+    wx.request({
+      url: "https://www.gzdzfpy.com.cn/yanyeSystem/findAllCustomerInfo",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'username': 'admin'
+      },
+      method: 'POST',
+      success: function(data) {
+        that.setData({
+          clientList: data.data.infoList
+        })
+      }
+    })
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

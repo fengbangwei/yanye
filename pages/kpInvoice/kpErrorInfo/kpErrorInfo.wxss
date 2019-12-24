@@ -1,0 +1,28 @@
+.topNav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80rpx;
+  background-color: #0faeff;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content image {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.content text {
+  word-break: break-all;
+  width: 600rpx;
+  padding-top: 20rpx;
+  text-align: center;
+}

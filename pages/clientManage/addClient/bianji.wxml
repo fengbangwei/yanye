@@ -6,12 +6,13 @@
     <form bindsubmit='doLogin'>
   <view class="form-item">
     <view class="uni-form-item uni-row company">
+    <input type="hidden" class="yincang" style="display:none;" value="{{id}}" name="id"></input>
       <view class="title">发票抬头</view>
-      <input type="text" placeholder="请输入发票抬头" name="ghf_mc" ></input>
+      <input type="text" placeholder="请输入发票抬头" value="{{ghf_mc}}" name="ghf_mc" ></input>
     </view>
     <view class="uni-form-item uni-row">
       <view class="title">税号</view>
-      <input type="text" placeholder="请输入税号" name="ghf_nsrsbh"></input>
+      <input type="text" placeholder="请输入税号"  value="{{ghf_nsrsbh}}" name="ghf_nsrsbh"></input>
     </view>
     <view class="uni-form-item uni-row">
       <view class="title">手机号码</view>
@@ -23,17 +24,17 @@
     </view>
     <view class="uni-form-item uni-row">
       <view class="title address-phone">地址及电话</view>
-      <textarea class="uni-input" auto-height="true" placeholder="请输入地址电话" name="ghf_dzdh"></textarea>
+      <textarea class="uni-input" auto-height="true" placeholder="请输入地址电话"  value="{{ghf_dzdh}}" style="margin-right:30px;"  name="ghf_dzdh"></textarea>
     </view>
     <view class="uni-form-item uni-row">
       <view class="title bank-number">开户行及账号</view>
-      <textarea class="uni-input" auto-height="true" placeholder="请输入开户行及账号" name="ghf_yhzh"></textarea>
+      <textarea class="uni-input" auto-height="true" placeholder="请输入开户行及账号"  value="{{ghf_yhzh}}" style="margin-right:30px;" name="ghf_yhzh"></textarea>
     </view>
   </view>
   <view class="btn-group">
-    <button class="buttons" type="primary" plain="true" bindtap="addClient" form-type='submit'>添加</button>
-  <button wx-if="{{isShowButton}}" class="buttons" type="primary" plain="true" bindtap="updateClient">修改</button>
-  <button wx-if="{{isShowButton}}" class="buttons" type="warn" plain="true" bindtap="removeClient">删除</button>
+    <button class="buttons" type="primary" plain="true" form-type='submit' data-userid="{{id}}" >编辑</button>
+    <button class="buttons" type="primary" plain="true" bindtap="delete" data-userid="{{id}}" style="margin-top:20px;background-color:red;color:white;">删除</button>
+ 
   </view>
-   </form>
+  </form>
 </view>

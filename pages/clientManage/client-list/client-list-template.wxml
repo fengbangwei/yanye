@@ -1,4 +1,4 @@
-<template name="clientListTemplate">
+<template name="clientListTemplate" >
   <view class="card-container">
     <view class="card-header">
     <text class="title">{{ghf_mc}}</text>
@@ -21,7 +21,7 @@
     </view>
     <view class="cont">
       <text>银行账号:</text>
-      <text class="title">{{ghf_yhzh}}</text>
+      <text class="title" >{{ghf_yhzh}}</text>
     </view>
   </view>
 </template>

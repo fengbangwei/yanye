@@ -12,7 +12,12 @@
   </view>
   <view class="client-detail">
     <block wx:for="{{clientList}}" wx:key="*this" wx:for-item="client">
+      <view wx:if="{{openInvoice == false}}" bindtap="bianji" data-bean="{{client}}">
       <template is="clientListTemplate" data="{{...client}}"></template>
+      </view>
+      <view wx:if="{{openInvoice == true}}" bindtap="addOpenInvoiceInfo" data-bean="{{client}}">
+      <template is="clientListTemplate" data="{{...client}}"></template>
+      </view>
     </block>
   </view>
 </view>

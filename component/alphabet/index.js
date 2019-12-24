@@ -55,6 +55,12 @@ Component({
     //滑动结束
     handlerEnd(e) {
       this.setData({ addBg: false });
+    },
+    selectGoods(e) {
+      let data = e.target.dataset.goods;
+      let goods = JSON.stringify(data)
+      console.log(goods)
+      this.triggerEvent('myevent', goods, "2323")
     }
   }
 })

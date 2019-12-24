@@ -1,15 +1,16 @@
 {
   "pages": [
-    "pages/goods/goodsList/goodsList",
-    "pages/alphabetList/alphabetList",
-    "pages/goods/goodsDetail/goodsDetail",
-    "pages/kpInvoice/kpInvoice",
-    "pages/userLogin/login",
     "pages/index/index",
+    "pages/kpInvoice/kpInvoice",
+    "pages/kpInvoice/kpErrorInfo/kpErrorInfo",
+    "pages/userLogin/login",
+    "pages/goods/goodsList/goodsList",
+    "pages/goods/goodsDetail/goodsDetail",
     "pages/clientManage/clientManage",
-    "pages/user/user",
-    "pages/invoiceManage/invoiceManage",
     "pages/clientManage/addClient/addClient",
+    "pages/clientManage/addClient/bianji",
+    "pages/invoiceManage/invoiceManage",
+    "pages/user/user",
     "pages/userRegist/regist"
   ],
   "tabBar": {

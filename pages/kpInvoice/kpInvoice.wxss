@@ -1,183 +1,190 @@
 /* pages/kpInvoice/kpInvoice.wxss */
 
-.kp-main{
-		background: #f5f5f5;
-		width: 100%;
-	}
-	
-	.kp-header{
-		display: flex;
-		height: 100rpx;
-		background: #fff;
-		padding: 20rpx;
-	}
-	.header-img{
-		width: 100rpx;
-		height: 100rpx;
-		background: #000000;
-	}
-	.header-img image{
-		width: 100rpx;
-		height: 100rpx;
-	}
-	
-	.header-title {
-		margin-left: 20rpx;
-	}
-	
-	.kp-container{
-		/* margin-top: 20rpx; */
-		margin-bottom: 100rpx;
-	}
-	
-	.cont{
-		background: #fff;
-	}
-	
-	.container-select {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		width: 100%;
-		border-bottom: 2px solid #f5f5f5;
-		height: 60rpx;
-		padding: 0;
-	}
+.kp-main {
+  background: #f5f5f5;
+  width: 100%;
+}
 
-	.container-option{
-		flex: 1;
-		height: 100%;
-		text-align: center;
-	}
-	.container-option view{
-    	width: 160px;
-		margin: 0 auto;
-		text-align: center;
-	}
-	.select-active view{
-		height: 60rpx;
-		color: #1E9FFF;
-		border-bottom: 2px solid #1E9FFF;
-		margin: 0 auto;
-	}
-	
-	.form-item .uni-form-item{
-		border-bottom: 2px solid #f5f5f5;
-		align-items: center;
-	}
-	.uni-form-item .title+.uni-input{
-		padding: 0;
-	
-	}
-	
-	.title{
-		width: 225rpx;
-		color: #666;
-	}
-	
-	.icon-more{
-		justify-content: space-between;	
-	}
-	
-	.icon-more .title{
-		width: 520rpx;
-	}
-	
-	.icon-more span{
-		margin-right: 15px;
-	}
-	
-	.form-commodity{
-		margin-top: 20rpx;
-		background: #fff;
-	}
-	
-	.form-commodity .commdity-item{
-		display: flex;
-		justify-content: space-between;
-		padding: 15rpx 25rpx;
-	} 
-	
-	.form-commodity .commodity-header{
-		color:#1E9FFF;
-	}
-	
-	.add-commity{
-		margin-top: 20rpx;
-		padding: 15rpx 25rpx;
-		background: #fff;
-		text-align: center;
-		
-	}
-	.add-commity view{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	
-	.iconfont{
-		font-size: 48rpx;
-		margin-right: 10px;
-		color: #1E9FFF;
-	}
-	.iconfontRed{
-		color:#e64340;
-	}
-	
-	.footer{
-		height: 80rpx;
-		background: #fff;
-		position: fixed;
-		bottom: 0;
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-	
-	.money{
-		padding: 15px;
-	}
-	
-	.price{
-		color: #fd6e0e;
-	}
-	
-	.footer button{
-		background: #1E9FFF!important;
-		color: #fff!important;
-		border-radius: 0;
-		width: 233rpx;
-	}
-	
-	.company{
-		position: relative;
-	}
-	.companyList{
-		position: absolute;
-		top: 90rpx;
-		background: #fff;
-		border: 1px solid #e5e5e5;
-		z-index: 999;
-		width: 100%;
-	}
-	
-	.companyItem {
-		height: 80rpx;
-		border-bottom: 1px solid #e5e5e5;
-		display: flex;
-		align-items: center;
-		width: 100%;
-		padding: 2rpx 10rpx;
-		overflow: hidden;
-		text-overflow:ellipsis;
-	}
-	.companyName{
-		text-overflow:ellipsis;
-		  white-space: nowrap;
-		  overflow: hidden;
-	}
+.kp-header {
+  display: flex;
+  height: 100rpx;
+  background: #fff;
+  padding: 20rpx;
+}
+
+.header-img {
+  width: 100rpx;
+  height: 100rpx;
+  background: #000;
+}
+
+.header-img image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.header-title {
+  margin-left: 20rpx;
+}
+
+.kp-container {
+  /* margin-top: 20rpx; */
+  margin-bottom: 100rpx;
+}
+
+.cont {
+  background: #fff;
+}
+
+.container-select {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 2px solid #f5f5f5;
+  height: 60rpx;
+  padding: 0;
+}
+
+.container-option {
+  flex: 1;
+  height: 100%;
+  text-align: center;
+}
+
+.container-option view {
+  width: 160px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.select-active view {
+  height: 60rpx;
+  color: #1e9fff;
+  border-bottom: 2px solid #1e9fff;
+  margin: 0 auto;
+}
+
+.form-item .uni-form-item {
+  border-bottom: 2px solid #f5f5f5;
+  align-items: center;
+}
+
+.uni-form-item .title+.uni-input {
+  padding: 0;
+}
+
+.title {
+  width: 225rpx;
+  color: #666;
+}
+
+.icon-more {
+  justify-content: space-between;
+}
+
+.icon-more .title {
+  width: 520rpx;
+}
+
+.icon-more span {
+  margin-right: 15px;
+}
+
+.form-commodity {
+  margin-top: 20rpx;
+  background: #fff;
+}
+
+.form-commodity .commdity-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15rpx 25rpx;
+}
+
+.form-commodity .commodity-header {
+  color: #1e9fff;
+}
+
+.add-commity {
+  margin-top: 20rpx;
+  padding: 15rpx 25rpx;
+  background: #fff;
+  text-align: center;
+}
+
+.add-commity view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconfont {
+  font-size: 48rpx;
+  margin-right: 10px;
+  color: #1e9fff;
+}
+
+.iconfontRed {
+  color: #e64340;
+}
+
+.footer {
+  height: 80rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.money {
+  padding: 15px;
+}
+
+.price {
+  color: #fd6e0e;
+}
+
+.footer button {
+  background: #1e9fff !important;
+  color: #fff !important;
+  border-radius: 0;
+  width: 233rpx;
+}
+
+.company {
+  position: relative;
+}
+
+.companyList {
+  position: absolute;
+  top: 90rpx;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  z-index: 999;
+  width: 100%;
+}
+
+.companyItem {
+  height: 80rpx;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 2rpx 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.companyName {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 .topNav {
   display: flex;
@@ -189,11 +196,13 @@
   color: #fff;
   align-items: center;
 }
-.select-active{
+
+.select-active {
   height: 60rpx;
-  color: #1E9FFF;
-  border-bottom: 2px solid #1E9FFF;
+  color: #1e9fff;
+  border-bottom: 2px solid #1e9fff;
 }
+
 .topTab {
   display: flex;
   justify-content: space-around;
@@ -201,26 +210,31 @@
   padding: 5px 5px 0 5px;
   border-bottom: 1px #ccc solid;
 }
+
 /* 表单 */
-.uni-form-item{
-	display:flex;
-	width:100%;
-	padding:10rpx 0;
+
+.uni-form-item {
+  display: flex;
+  width: 100%;
+  padding: 10rpx 0;
 }
-.uni-form-item .title{
-	padding:10rpx 25rpx;
+
+.uni-form-item .title {
+  padding: 10rpx 25rpx;
 }
+
 .uni-label {
-	width: 210rpx;
-	word-wrap: break-word;
-	word-break: break-all;
-	text-indent:20rpx;
+  width: 210rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-indent: 20rpx;
 }
+
 .uni-input {
-	height: 40rpx;
-	padding: 15rpx 25rpx;
-	line-height:40rpx;
-	font-size:38rpx;
-	background:#FFF;
-	flex: 1;
+  height: 40rpx;
+  padding: 15rpx 25rpx;
+  line-height: 40rpx;
+  font-size: 38rpx;
+  background: #fff;
+  flex: 1;
 }

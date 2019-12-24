@@ -139,3 +139,6 @@
   transform: translate(-50%,-50%);
   border-radius: 20rpx;
 }
+.selector-one:first-child{
+  padding-top: 96rpx !important;
+}

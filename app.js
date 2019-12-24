@@ -1,6 +1,6 @@
 //app.js
 App({
-  appid:"wxa1b422765bb79b9a",
+  appid:"wx8793e8ab1a85f13c",
   secret:"e66f44d3023fb4d821a99de3c0fc72b7",
   serverUrl:"https://www.gzhtjs.com.cn/yanyeSystem",
   openid:"",
@@ -102,7 +102,7 @@ App({
         if (newVal === val) return
         fn && fn(newVal)
         val = newVal
-      },
+      }
     })
   }
 })

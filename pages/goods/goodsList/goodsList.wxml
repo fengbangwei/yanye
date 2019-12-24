@@ -1,0 +1,6 @@
+<view class="topNav">
+    <span bindtap="backLeft" class="iconfont icon-arrow-left" style="color:#fff;margin-left: 20rpx;"></span>
+    <text style="margin-left: -24px;">商品列表</text>
+    <span></span>
+  </view>
+<alphabet id="test" bindmyevent="myEventListener" list="{{list}}" />

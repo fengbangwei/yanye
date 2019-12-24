@@ -1,0 +1,15 @@
+<template name="invoiceListTemplate">
+   <view class="table">
+
+ 
+ <view class="tr bg-g">
+  <view class="td">{{datetime}}</view>
+  <view class="td">{{pluname}}</view>
+  <view class="td1">{{work}}{{zt}}</view>
+ </view>
+ 
+ 
+</view>
+
+    
+</template>

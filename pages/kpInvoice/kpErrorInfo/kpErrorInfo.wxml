@@ -1,0 +1,14 @@
+<view class="error-container">
+  <view class="topNav">
+    <span bindtap="backLeft" class="iconfont icon-arrow-left" style="color:#fff;margin-left: 20rpx;"></span>
+    <text style="margin-left: -26px;">错误信息</text>
+    <span></span>
+  </view>
+  <view class="content">
+    <image src="../../resource/images/error.png"></image>
+    <text>{{message}}</text>
+  </view>
+  <!-- <view class="btn">
+    <button type="primary" class="buttons" bindtap="returnIndex">返回首页</button>
+  </view> -->
+</view>

@@ -1,43 +1,41 @@
 <view class="goods-container">
-<view class="topNav">
-      <span bindtap="backLeft" class="iconfont icon-arrow-left" style="color:#fff;"></span>
-      <text style="margin-left: -16px;">商品明细</text>
-      <span></span>
-    </view>
+  <view class="topNav">
+    <span bindtap="backLeft" class="iconfont icon-arrow-left" style="color:#fff;margin-left: 20rpx;"></span>
+    <text style="margin-left: -24px;">商品明细</text>
+    <span></span>
+  </view>
   <view class="uni-form-item uni-row">
     <view class="title">商品名称</view>
     <view class=" goods" bindtap="goodsCheck">
-      <text>{{goodsList.xmmc?goodsList.xmmc:'请选择'}}</text>
+      <text style="color: #1e9fff;">{{goodsList.xmmc?goodsList.xmmc:'请选择'}}</text>
       <span class="iconfont icon-arrow-left"></span>
     </view>
   </view>
   <view class="uni-form-item uni-row">
     <view class="title">规格型号</view>
     <view class=" goods">
-      <input class="uni-input" type="text" value="{{goodsList.ggxh}}" />
+      <input placeholder="请输入规格型号" data-name="ggxh" bindinput="bindVal" class="uni-input" type="text" value="{{goodsList.ggxh}}" />
     </view>
     <span></span>
   </view>
   <view class="uni-form-item uni-row">
     <view class="title">计量单位</view>
-    <!-- <text>{{goodsList.ggxh}}</text> -->
     <view class=" goods">
-      <!-- <text>{{goodsList.ggxh}}</text> -->
-      <input class="uni-input" type="text" value="{{goodsList.dw}}" />
+      <input placeholder="请输入计量单位" data-name="dw" bindinput="bindVal" class="uni-input" type="text" value="{{goodsList.dw}}" />
     </view>
     <span></span>
   </view>
   <view class="uni-form-item uni-row">
     <view class="title">数量</view>
-    <input class="uni-input" maxlength="8" placeholder="请输入" type="number" value="{{goodsList.xmsl}}" />
+    <input  data-name="xmsl" bindinput="bindVal" class="uni-input" maxlength="8" placeholder="请输入商品数量(必填）" type="digit" adjust-position="true" value="{{goodsList.xmsl}}" />
   </view>
   <view class="uni-form-item uni-row">
     <view class="title">单价</view>
-    <input class="uni-input" maxlength="8" placeholder="请输入" type="number" value="{{goodsList.xmdj}}" />
+    <input data-name="xmdj" bindinput="bindVal" class="uni-input" maxlength="8" placeholder="请输入商品单价(必填）" type="digit" adjust-position="true" value="{{goodsList.xmdj}}" />
   </view>
   <view class="uni-form-item uni-row">
     <view class="title">金额</view>
-    <text>{{Money}}</text>
+    <text>{{goodsList.xmje}}</text>
   </view>
   <view class="uni-form-item uni-row">
     <view class="title">税率</view>

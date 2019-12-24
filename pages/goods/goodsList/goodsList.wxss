@@ -1,1 +1,17 @@
-/* pages/goods/goodsList/goodsList.wxss */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.topNav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80rpx;
+  background-color: #0faeff;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
+  /* position: fixed;
+  z-index: 1; */
+}

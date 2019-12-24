@@ -5,12 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-        ghf_mc: "",
-        ghf_nsrsbh: "",
-        ghf_sj: "",
-        ghf_email: "",
-        ghf_dzdh: "",
-        ghf_yhzh: ""
+
   },
   backLeft: function () {
     wx.navigateBack({
@@ -21,41 +16,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      
+    this.setData({
+      ghf_mc: options.ghf_mc,
+      ghf_nsrsbh: options.ghf_nsrsbh,
+      ghf_dzdh: options.ghf_dzdh,
+      ghf_yhzh: options.ghf_yhzh,
+      id: options.id
+    })
+    console.log(options)
   },
-  addClient: function (options) {
-    
-  },
-  doLogin: function (e) {
-    var formObject = e.detail.value;
-    var ghf_mc = formObject.ghf_mc;
-    var ghf_nsrsbh = formObject.ghf_nsrsbh;
-    var ghf_sj = formObject.ghf_sj;
-    var ghf_email = formObject.ghf_email;
-    var ghf_dzdh = formObject.ghf_dzdh;
-    var ghf_yhzh = formObject.ghf_yhzh;
-    console.log(ghf_mc + "--" + ghf_nsrsbh + "--" + ghf_sj + "--" + ghf_email + "--" + ghf_dzdh + "--" + ghf_yhzh)
-    wx.request({
-      url: "https://www.gzdzfpy.com.cn/yanyeSystem/addnewCustomer",
+  delete:function(e){
+     wx.request({
+      url: "https://www.gzdzfpy.com.cn/yanyeSystem/deleteCustomerInfoByid",
       header: {
         'content-type': 'application/json',
         'username': 'admin'
       },
       method: 'POST',
       data: {
-        ghf_mc: ghf_mc,
-        ghf_nsrsbh: ghf_nsrsbh,
-        ghf_sj: ghf_sj,
-        ghf_email: ghf_email,
-        ghf_dzdh: ghf_dzdh,
-        ghf_yhzh: ghf_yhzh
+        username: 'admin',
+        id: e.currentTarget.dataset.userid
       },
       success: function (data) {
         wx.showToast({
           title: data.data.returnmsg,
           icon: 'success',
           duration: 2000,
-          success:function(){
+          success: function () {
             setTimeout(function () {
               wx.navigateBack({
                 url: '../clientManage/clientManage',
@@ -66,15 +53,46 @@ Page({
       }
     })
   },
-  /**ghf_mc: function (e) {
-    let ghf_mc = this.data
-    this.setData({
-      ghf_mc: e.detail.value
+  doLogin:function (e){
+    var formObject = e.detail.value;
+    var ghf_mc = formObject.ghf_mc;
+    var ghf_nsrsbh = formObject.ghf_nsrsbh;
+    var ghf_sj = formObject.ghf_sj;
+    var ghf_email = formObject.ghf_email;
+    var ghf_dzdh = formObject.ghf_dzdh;
+    var ghf_yhzh = formObject.ghf_yhzh;
+    wx.request({
+      url: "https://www.gzdzfpy.com.cn/yanyeSystem/updateCustomerByid",
+      header: {
+        'content-type': 'application/json',
+        'username': 'admin'
+      },
+      method: 'POST',
+      data: {
+        ghf_mc: ghf_mc,
+        ghf_nsrsbh: ghf_nsrsbh,
+        ghf_dzdh: ghf_dzdh,
+        ghf_yhzh: ghf_yhzh,
+        ghf_sj: ghf_sj,
+        ghf_email: ghf_email,
+        id: formObject.id
+      },
+      success: function (data) {
+        wx.showToast({
+          title: data.data.returnmsg,
+          icon: 'success',
+          duration: 2000,
+          success: function () {
+            setTimeout(function () {
+              wx.navigateBack({
+                url: '../clientManage/clientManage',
+              })
+            }, 2000)
+          }
+        })
+      }
     })
-    this.data.ghf_mc = e.detail.value;
-    console.log(e.detail.value)
-  },**/
-
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
