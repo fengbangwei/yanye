@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/clientManage/clientManage",
+    "pages/invoiceManage/invoiceManage",
+    "pages/invoiceManage/fpmingxi",
     "pages/kpInvoice/kpInvoice",
+    "pages/clientManage/clientManage",
     "pages/index/index",
     "pages/clientManage/addClient/addClient",
     "pages/clientManage/addClient/bianji",
-    "pages/invoiceManage/invoiceManage",
     "pages/userLogin/login",
     "pages/userRegist/regist",
     "pages/user/user"

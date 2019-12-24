@@ -15,63 +15,14 @@ Page({
     startYear: 2000,
     endYear: 2050,
 
-    tableList: [{
-      "pluname": "",
-      "xscount": 1,
-      "date": "今天",
-      "datetime": "9:25:31",
-      "work": "扫码开票",
-      "zt": "未扫码"
-    },
-    {
-      "pluname": "航天信息股份有限公司",
-      "xscount": 1,
-      "date": "今天",
-      "datetime": "9:26:28",
+    tableList: {
+      "xsf_mc": "",
+      "hjje": "",
+      "date": "",
       "work": "手工开票",
-      "zt": "开票中"
-    },
-    {
-      "pluname": "航天信息股份有限公司",
-      "xscount": 1,
-      "date": "今天",
-      "datetime": "10:26:32",
-      "work": "手工开票",
-      "zt": "开票中"
-    },
-    {
-      "pluname": "航天信息股份有限公司",
-      "xscount": 1,
-      "date": "今天",
-      "datetime": "10:46:22",
-      "work": "手工开票",
-      "zt": "开票中"
-    },
-    {
-      "pluname": "",
-      "xscount": 1,
-      "date": "今天",
-      "datetime": "11:01:54",
-      "work": "扫码开票",
-      "zt": "未扫码"
-    },
-    {
-      "pluname": "航天信息股份有限公司",
-      "xscount": 1,
-      "date": "昨天",
-      "datetime": "11:26:45",
-      "work": "手工开票",
-      "zt": "开票中"
-    },
-    {
-      "pluname": "",
-      "xscount": -1,
-      "date": "昨天",
-      "datetime": "11:44:38",
-      "work": "扫码开票",
-      "zt": "未扫码"
+      "msg": "",
+      "state":""
     }
-    ]
   },
   
   
@@ -79,44 +30,70 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var today = new Date()
-    var year = today.getFullYear()
-    var month = today.getMonth() + 1
-    var day = today.getDate()
-    var time = this.data.date
-    time=year+"-"+month+"-"+day
-    this.setData({
-      date:time
+    
+  },
+  mingxi: function (event) {
+    
+    var url = event.currentTarget.dataset.bean.pdf_url;
+    console.log(encodeURIComponent(url))
+    wx.navigateTo({
+      url: '../invoiceManage/fpmingxi?ghf_mc=' + event.currentTarget.dataset.bean.ghf_mc + '&hjje=' + event.currentTarget.dataset.bean.hjje + '&xsf_dzdh=' + event.currentTarget.dataset.bean.xsf_dzdh + '&xsf_mc=' + event.currentTarget.dataset.bean.xsf_mc + '&hjse=' + event.currentTarget.dataset.bean.hjse + '&jshj=' + event.currentTarget.dataset.bean.hjbhsje + '&fpdm=' + event.currentTarget.dataset.bean.fpdm + '&fphm=' + event.currentTarget.dataset.bean.fphm + '&erweima=' + encodeURIComponent(url) +'',
     })
-
-    /*wx.request({
-      url: "https://www.gzdzfpy.com.cn/yanyeSystem/findByLikeghfname?ghfmc=&date=2019-11-07",
-      headers: {
-        'content-type': 'application/x-www-form-urlencoded', 
+  },
+  changeDate(e) {
+    this.setData({ date: e.detail.value });
+    let that = this;
+    wx.request({
+      url: "https://www.gzdzfpy.com.cn/yanyeSystem/findByLikeghfname?ghfmc=&date=" + e.detail.value + "",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
         'username': 'admin'
       },
       method: 'GET',
       success: function (data) {
         console.log(data)
+        let _data = data.data;
+
+        for (var i = 0; i < _data.length; i++) {
+          console.log(that.data.tableList.date)
+          var oldDate = data.data[i].date
+          data.data[i].date = new Date(oldDate).getHours()
+            + ":" + new Date(oldDate).getMinutes()
+            + ":" + new Date(oldDate).getSeconds()
+        }
+
+        that.setData({
+          tableList: data.data
+        })
       }
 
-    }) */
-
-    var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
-    var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
-    // 精确到分的处理，将数组的秒去掉
-    var lastArray = obj1.dateTimeArray.pop();
-    var lastTime = obj1.dateTime.pop();
-
-    this.setData({
-      dateTime: obj.dateTime,
-      dateTimeArray: obj.dateTimeArray,
-      dateTimeArray1: obj1.dateTimeArray,
-      dateTime1: obj1.dateTime
-    });
+    })
   },
-  changeDate(e) {
-    this.setData({ date: e.detail.value });
+  sousuo: function (e) {
+    let that = this;   
+    wx.request({
+      url: "https://www.gzdzfpy.com.cn/yanyeSystem/findByLikeghfname?ghfmc=" + e.detail.value + "&date=" + that.data.date+"",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'username': 'admin'
+      },
+      method: 'get',
+      success: function (data) {
+        let _data = data.data;
+
+        for (var i = 0; i < _data.length; i++) {
+          var oldDate = data.data[i].date
+          data.data[i].date = new Date(oldDate).getHours()
+            + ":" + new Date(oldDate).getMinutes()
+            + ":" + new Date(oldDate).getSeconds()
+        }
+
+        that.setData({
+          tableList: data.data
+        })
+
+      }
+    })
   },
   changeTime(e) {
     this.setData({ time: e.detail.value });
@@ -160,41 +137,51 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var today = new Date()
+    var year = today.getFullYear()
+    var month = today.getMonth() + 1
+    var day = today.getDate()
+    var time = this.data.date
+    time = year + "-" + month + "-" + day
+    this.setData({
+      date: time
+    })
+    let that = this;
+    wx.request({
+      url: "https://www.gzdzfpy.com.cn/yanyeSystem/findByLikeghfname?ghfmc=&date="+time+"",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'username': 'admin'
+      },
+      method: 'GET',
+      success: function (data) {
+        let _data = data.data;
+        
+        for (var i = 0; i < _data.length;i++){
+          console.log(that.data.tableList.date)
+          var oldDate = data.data[i].date
+          data.data[i].date = new Date(oldDate).getHours()
+            + ":" + new Date(oldDate).getMinutes()
+            + ":" + new Date(oldDate).getSeconds()
+        }
+        
+        that.setData({
+          tableList: data.data
+        })
+        
+      }
+    })
+    var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+    var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+    // 精确到分的处理，将数组的秒去掉
+    var lastArray = obj1.dateTimeArray.pop();
+    var lastTime = obj1.dateTime.pop();
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    this.setData({
+      dateTime: obj.dateTime,
+      dateTimeArray: obj.dateTimeArray,
+      dateTimeArray1: obj1.dateTimeArray,
+      dateTime1: obj1.dateTime
+    });
   }
 })

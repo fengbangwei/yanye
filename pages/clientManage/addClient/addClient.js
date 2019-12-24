@@ -34,7 +34,6 @@ Page({
     var ghf_email = formObject.ghf_email;
     var ghf_dzdh = formObject.ghf_dzdh;
     var ghf_yhzh = formObject.ghf_yhzh;
-    console.log(ghf_mc + "--" + ghf_nsrsbh + "--" + ghf_sj + "--" + ghf_email + "--" + ghf_dzdh + "--" + ghf_yhzh)
     wx.request({
       url: "https://www.gzdzfpy.com.cn/yanyeSystem/addnewCustomer",
       header: {

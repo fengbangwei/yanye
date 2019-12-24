@@ -43,13 +43,19 @@
  display: flex;
  width: 100%;
  justify-content: center;
- height: 3rem;
  align-items: center;
+ height: 80px;
 }
 .td {
  width:40%;
  justify-content: center;
  text-align: center;
+ font-size:28rpx;
+  line-height:35rpx;
+   overflow:hidden;
+  text-overflow:ellipsis;
+  -webkit-box-orient:vertical;
+  word-break:break-all;
 }
 .bg-w{
  background: snow;
@@ -65,9 +71,4 @@
  display: flex;
  height: 3rem;
  align-items: center;
-}
-.td1 {
- width:20%;
- justify-content: center;
- text-align: center;
 }

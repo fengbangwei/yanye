@@ -1,0 +1,42 @@
+<import src="../invoiceManage/fpmingxi.wxml" />
+<view class="add-container">
+  <view class="topNav">
+      <span bindtap="backLeft" class="iconfont icon-arrow-left"></span>
+      <text>增值税普通发票</text>
+    </view>
+  <view>
+    <view class="uni-form-item uni-row company">
+      <view class="title">发票抬头</view>
+      <view>{{tableList.ghf_mc}}</view>
+    </view>
+    <view class="uni-form-item uni-row">
+      <view class="title">金额</view>
+      <view>{{tableList.hjje}}</view>
+    </view>
+    <view class="uni-form-item uni-row">
+      <view class="title">税额</view>
+       <view>{{tableList.hjse}}</view>
+    </view>
+    <view class="uni-form-item uni-row">
+      <view class="title">价税合计</view>
+      <view>{{tableList.jshj}}</view>
+    </view>
+    <view class="uni-form-item uni-row">
+      <view class="title address-phone">丙方名称</view>
+      <view style="margin-right:64px;">{{tableList.xsf_mc}}</view>
+    </view>
+    <view class="uni-form-item uni-row">
+      <view class="title bank-number">丙方地址</view>
+       <view style="margin-right:20px;">{{tableList.xsf_dzdh}}</view>
+    </view>
+    <view class="uni-form-item uni-row">
+      <view class="title">发票代码</view>
+       <view>{{tableList.fpdm}}</view>
+    </view>
+    <view class="uni-form-item uni-row">
+      <view class="title">发票号码</view>
+      <view>{{tableList.fphm}}</view>
+    </view>
+  </view>
+  <canvas class="canvas-code"canvas-id="myQrcode" style="background:#fff;width: 200px;height: 200px;"/>
+</view>

@@ -1,15 +1,15 @@
 <template name="invoiceListTemplate">
-   <view class="table">
-
- 
- <view class="tr bg-g">
-  <view class="td">{{datetime}}</view>
-  <view class="td">{{pluname}}</view>
-  <view class="td1">{{work}}{{zt}}</view>
- </view>
- 
- 
-</view>
-
-    
+  <view class="table">
+    <view class="tr bg-g">
+      <view class="td">{{date}}</view>
+      <view class="td">
+        <view>{{hjje}}</view>
+        <view>{{ghf_mc}}</view>
+      </view>
+      <view class="td">
+        <view>{{work}}</view>
+        <view>{{status == '0'?'申请开票' : (status=='1'?'开票中':(status=='2'?'开票成功':(status=='3'?'开票失败':'')))}}</view>
+      </view>
+    </view>
+  </view>
 </template>
