@@ -13,7 +13,39 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+function showTipModal(app,url){
+  wx.getStorage({
+    key: 'userInfo',
+    success: function (res) {
+      app.username = res.data.username;
+      app.isOpenBtn = false
+      if(url != ''){
+        wx.navigateTo({
+          url: url,
+        })
+      }
+    },
+    fail: function (res) {
+      wx.showModal({
+        title: '未登录',
+        content: '您未登录，需要登录后才能继续',
+        showCancel: false,
+        cancelText: '取消',
+        cancelColor: '#fd6e0e',
+        confirmText: '确定',
+        confirmColor: '#1e9fff',
+        success: function (res) {
+          wx.switchTab({
+            url: '../userLogin/login'
+          })
+        }
+      })
+    },
+    complete: function (res) { },
+  })
+}
 
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  showTipModal: showTipModal
 }

@@ -26,7 +26,6 @@ Page({
       prevPage.data.formdata.goodsList.push(this.data.goodsList);
       let totalHjje = (Number(prevPage.data.formdata.hjje) + Number(this.data.goodsList.xmje)).toFixed(2);
       prevPage.data.formdata.hjje = totalHjje;
-      console.log(prevPage.data.formdata)
       prevPage.setData({
         formdata: prevPage.data.formdata
       })
@@ -56,7 +55,6 @@ Page({
     });
   },
   bindVal(e) {
-    console.log(e)
     this.data.goodsList[e.target.dataset.name] = e.detail.value;
     if (e.target.dataset.name == 'xmdj' || e.target.dataset.name == 'xmsl') {
       this.data.goodsList[e.target.dataset.name] = this.money(e.detail.value);

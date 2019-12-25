@@ -1,3 +1,4 @@
+const app = getApp()
 Page({
 
   /**
@@ -108,7 +109,7 @@ Page({
       url: "https://www.gzdzfpy.com.cn/yanyeSystem/findAllCustomerInfo",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'username': 'admin'
+        'username': app.username
       },
       method: 'POST',
       success: function(data) {
@@ -125,7 +126,7 @@ Page({
         url: "https://www.gzdzfpy.com.cn/yanyeSystem/findCustomerByLikename",
         header: {
           'content-type': 'application/x-www-form-urlencoded',
-          'username': 'admin'
+          'username': app.username
         },
         data:{
           customername: e.detail.value

@@ -46,3 +46,13 @@
   margin-top: 5px;
   font-size: 24rpx;
 }
+.topNav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80rpx;
+  background-color: #0faeff;
+  justify-content: center;
+  color: #fff;
+  align-items: center;
+}

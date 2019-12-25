@@ -13,13 +13,11 @@ Page({
       url: app.serverUrl + '/findAllproductInfo',
       method: 'POST',
       header: {
-        'username': 'liufangping'
+        'username': app.username
       },
       success: res => {
-        console.log(res)
         _this.data.goodsList = res.data.goodsList;
         let result = _this.data_letter_sort(_this.data.goodsList, "spell", "xmmc");
-        console.log(result)
         _this.setData({
           list: result
         })
@@ -39,7 +37,6 @@ Page({
     prevPage.data.goodsList.dw = goods.dw;
     prevPage.data.goodsList.xmdj = goods.price;
     prevPage.data.goodsList.sl = goods.sl;   //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
-    console.log(prevPage.data.goodsList)
     prevPage.setData({
       goodsList: prevPage.data.goodsList  
     });
@@ -53,7 +50,6 @@ Page({
   selectGoods(e) {
     let data = e.target.dataset.goods;
     let goods = JSON.stringify(data)
-    console.log(goods)
     wx.navigateTo({
       url: '../goodsDetail/goodsDetail' + goods
     })

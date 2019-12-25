@@ -8,7 +8,7 @@
             <view class="inputView">
                 <image class="nameImage" src="../resource/images/username.png"></image>
                 <label class="loginLabel">账号</label>
-                <input name="username" value='liufangping' class="inputText" placeholder="请输入账号" />
+                <input name="username" value="{{username}}" class="inputText" placeholder="请输入账号" />
             </view>
             <view class="line"></view>
 
@@ -16,14 +16,16 @@
             <view class="inputView">
                 <image class="keyImage" src="../resource/images/password.png"></image>
                 <label class="loginLabel">密码</label>
-                <input name="password" value='12345678' class="inputText" password="true" placeholder="请输入密码" />
+                <input name="password" value="{{password}}" class="inputText" password="true" placeholder="请输入密码" />
             </view>
 
             <!--按钮-->
-            <view>
+            <view wx:if="{{isOpenBtn}}">
                 <button class="loginBtn" type="primary" form-type='submit'>登录</button>
             </view>
-
+            <view wx:if="{{!isOpenBtn}}">
+                <button class="loginBtn" bindtap="exit" type="primary">注销</button>
+            </view>
             <!-- <view>
                 <button class="goRegistBtn" type="warn" bindtap="goRegistPage">没有账号？点击注册</button>
             </view> -->

@@ -1,4 +1,7 @@
 <view class="main">
+  <view class="topNav">
+    <text>首页</text>
+  </view>
   <view class="main-container">
     <view class="main-list">
       <view class="main-box" bindtap="kpInvoice">

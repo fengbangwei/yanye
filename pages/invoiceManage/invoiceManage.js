@@ -1,5 +1,6 @@
 // pages/invoiceManage/invoiceManage.js
 var dateTimePicker = require('../../utils/dateTimePicker.js');
+const app = getApp()
 Page({
 
   /**
@@ -25,12 +26,14 @@ Page({
     }
   },
   
-  
+  backLeft: function () {
+    wx.navigateBack()
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+   
   },
   mingxi: function (event) {
     
@@ -47,7 +50,7 @@ Page({
       url: "https://www.gzdzfpy.com.cn/yanyeSystem/findByLikeghfname?ghfmc=&date=" + e.detail.value + "",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'username': 'admin'
+        'username': app.username
       },
       method: 'GET',
       success: function (data) {
@@ -75,7 +78,7 @@ Page({
       url: "https://www.gzdzfpy.com.cn/yanyeSystem/findByLikeghfname?ghfmc=" + e.detail.value + "&date=" + that.data.date+"",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'username': 'admin'
+        'username': app.username
       },
       method: 'get',
       success: function (data) {
@@ -151,7 +154,7 @@ Page({
       url: "https://www.gzdzfpy.com.cn/yanyeSystem/findByLikeghfname?ghfmc=&date="+time+"",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'username': 'admin'
+        'username': app.username
       },
       method: 'GET',
       success: function (data) {

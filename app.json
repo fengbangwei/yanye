@@ -26,7 +26,7 @@
         "selectedIconPath": "pages/resource/img/homeHL.png"
       },
       {
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/userLogin/login",
         "text": "我的",
         "iconPath": "pages/resource/img/user.png",
         "selectedIconPath": "pages/resource/img/userHL.png"

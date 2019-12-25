@@ -1,4 +1,5 @@
 // pages/clientManage/addClient/addClient.js
+const app = getApp()
 Page({
 
   /**
@@ -48,7 +49,7 @@ Page({
         url: "https://www.gzdzfpy.com.cn/yanyeSystem/addnewCustomer",
         header: {
           'content-type': 'application/json',
-          'username': 'admin'
+          'username': app.username
         },
         method: 'POST',
         data: {

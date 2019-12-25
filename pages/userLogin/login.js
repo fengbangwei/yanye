@@ -2,15 +2,23 @@ const app = getApp()
 
 Page({
   data: {
+    isOpenBtn:true,
+    username:'',
+    password:''
   },
   onLoad: function (params) {
-    // debugger;
+    this.setData({
+      isOpenBtn: app.isOpenBtn,
+      username: app.username,
+      password: app.password
+    })
   },
 
   // 登录  
   doLogin: function (e) {
     console.log(e)
     var me = this;
+    let that = this;
     var formObject = e.detail.value;
     var username = formObject.username;
     var password = formObject.password;
@@ -39,18 +47,37 @@ Page({
         },
         success: function (res) {
           console.log(res.data);
-          wx.hideLoading();
+          let result = res.data;
           if (res.data.returncode == "0000") {
            // debugger
             // 登录成功跳转 
+            wx.hideLoading();
             wx.showToast({
               title: '登录成功',
               icon: 'success',
-              duration: 2000
-            });
-            // 页面跳转
-            wx.switchTab({
-              url: '../index/index'
+              duration: 2000,
+              success: function(res) {
+                let _this = that;
+                app.username = result.data.username;//设置全局的登录名
+                app.password = password;
+                app.isOpenBtn = false;
+                wx.setStorage({
+                  key: 'userInfo',
+                  data: result.data,
+                  success: function (res) {
+                    // 页面跳转
+                    wx.switchTab({
+                      url: '../index/index'
+                    })
+                    _this.setData({
+                      isOpenBtn: app.isOpenBtn
+                    })
+                  }
+                })
+                
+              },
+              fail: function(res) {},
+              complete: function(res) {},
             })
           } else if (res.data.returncode == "1111") {
             // 失败弹出框
@@ -64,10 +91,51 @@ Page({
       })
     }
   },
-
   goRegistPage:function() {
     wx.redirectTo({
       url: '../userRegist/regist',
+    })
+  },
+  exit(){
+    wx.clearStorage()
+    app.isOpenBtn = true;
+    app.username = "";
+    app.password = "";
+    this.setData({
+      isOpenBtn: app.isOpenBtn
+    })
+    wx.showToast({
+      title: '注销成功',
+      icon: 'none',
+      duration: 3000
+    })
+    wx.switchTab({
+      url: '../index/index'
+    })
+    wx.getStorage({
+      key: 'userInfo',
+      success: function (res) {
+
+      },
+      fail: function (res) {
+        wx.showModal({
+          title: '未登录',
+          content: '您未登录，需要登录后才能继续',
+          showCancel: false,
+          cancelText: '取消',
+          cancelColor: '#fd6e0e',
+          confirmText: '确定',
+          confirmColor: '#1e9fff',
+          success: function (res) {
+            wx.switchTab({
+              url: '../userLogin/login'
+            })
+          },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      complete: function (res) { },
     })
   }
 })

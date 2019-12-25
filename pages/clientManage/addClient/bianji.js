@@ -1,4 +1,5 @@
 // pages/clientManage/addClient/addClient.js
+const app = getApp()
 Page({
 
   /**
@@ -30,11 +31,11 @@ Page({
       url: "https://www.gzdzfpy.com.cn/yanyeSystem/deleteCustomerInfoByid",
       header: {
         'content-type': 'application/json',
-        'username': 'admin'
+        'username': app.username
       },
       method: 'POST',
       data: {
-        username: 'admin',
+        username: app.username,
         id: e.currentTarget.dataset.userid
       },
       success: function (data) {
@@ -65,7 +66,7 @@ Page({
       url: "https://www.gzdzfpy.com.cn/yanyeSystem/updateCustomerByid",
       header: {
         'content-type': 'application/json',
-        'username': 'admin'
+        'username': app.username
       },
       method: 'POST',
       data: {

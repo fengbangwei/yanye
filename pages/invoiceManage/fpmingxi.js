@@ -1,5 +1,5 @@
 // pages/clientManage/addClient/addClient.js
-var QRCode = require('../../utils/qrcode.js');
+var QRCode = require('../../utils/qrcode.js')
 Page({
   /**
    * 页面的初始数据
