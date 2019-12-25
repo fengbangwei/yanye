@@ -23,11 +23,11 @@
 }
 
 .icon-arrow-left {
-  margin-left: 10rpx;
+  margin-left: 20rpx;
 }
 
 .icon-jia {
-  margin-right: 10rpx;
+  margin-right: 20rpx;
 }
 
 .search {

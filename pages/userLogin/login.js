@@ -7,10 +7,16 @@ Page({
     password:''
   },
   onLoad: function (params) {
-    this.setData({
-      isOpenBtn: app.isOpenBtn,
-      username: app.username,
-      password: app.password
+    let _this = this;
+    wx.getStorage({
+      key: 'password',
+      success: function(res) {
+        _this.setData({
+          isOpenBtn: app.isOpenBtn,
+          username: app.username,
+          password: res.data
+        })
+      }
     })
   },
 
@@ -59,8 +65,11 @@ Page({
               success: function(res) {
                 let _this = that;
                 app.username = result.data.username;//设置全局的登录名
-                app.password = password;
                 app.isOpenBtn = false;
+                wx.setStorage({
+                  key: 'password',
+                  data: password,
+                })
                 wx.setStorage({
                   key: 'userInfo',
                   data: result.data,
@@ -99,12 +108,10 @@ Page({
   exit(){
     wx.clearStorage()
     app.isOpenBtn = true;
-    app.username = "";
-    app.password = "";
     this.setData({
       isOpenBtn: app.isOpenBtn,
-      username: app.username,
-      password: app.password
+      username: "",
+      password: ""
     })
     wx.showToast({
       title: '注销成功',

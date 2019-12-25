@@ -1,6 +1,5 @@
 {
   "usingComponents": {
     "alphabet": "../component/alphabet/index"
-  },
-  "navigationBarTitleText": "商品列表"
+  }
 }

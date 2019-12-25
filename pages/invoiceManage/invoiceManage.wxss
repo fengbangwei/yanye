@@ -2,7 +2,7 @@
 .invoiceM-container {
   display: flex;
   flex-direction: column;
-  padding: 20rpx;
+  /* padding: 20rpx; */
 }
 .topNav {
   display: flex;
@@ -15,10 +15,10 @@
   align-items: center;
 }
 .topNav text{
-  margin-right: 220rpx;
+  margin-right: 255rpx;
 }
 .icon-arrow-left {
-  margin-left: 10rpx;
+  margin-left: 20rpx;
 }
 .search {
   width: 90%;

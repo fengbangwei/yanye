@@ -8,7 +8,7 @@ Page({
   data: {
 
   },
-  backLeft: function () {
+  backLeft: function() {
     wx.navigateBack({
       url: '../clientManage/clientManage',
     })
@@ -16,45 +16,61 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData({
       ghf_mc: options.ghf_mc,
       ghf_nsrsbh: options.ghf_nsrsbh,
       ghf_dzdh: options.ghf_dzdh,
       ghf_yhzh: options.ghf_yhzh,
-      id: options.id
+      id: options.id,
+      ghf_sj: options.ghf_sj,
+      ghf_email: options.ghf_email
     })
     console.log(options)
   },
-  delete:function(e){
-     wx.request({
-      url: "https://www.gzdzfpy.com.cn/yanyeSystem/deleteCustomerInfoByid",
-      header: {
-        'content-type': 'application/json',
-        'username': app.username
-      },
-      method: 'POST',
-      data: {
-        username: app.username,
-        id: e.currentTarget.dataset.userid
-      },
-      success: function (data) {
-        wx.showToast({
-          title: data.data.returnmsg,
-          icon: 'success',
-          duration: 2000,
-          success: function () {
-            setTimeout(function () {
-              wx.navigateBack({
-                url: '../clientManage/clientManage',
+  delete: function(e) {
+    wx.showModal({
+      title: '提示',
+      content: '您确定删除此客户吗?',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#fd6e0e',
+      confirmText: '确定',
+      confirmColor: '#1e9fff',
+      success: function(res) {
+        console.log(res)
+        if (res.confirm) {
+          wx.request({
+            url: "https://www.gzdzfpy.com.cn/yanyeSystem/deleteCustomerInfoByid",
+            header: {
+              'content-type': 'application/json',
+              'username': app.username
+            },
+            method: 'POST',
+            data: {
+              username: app.username,
+              id: e.currentTarget.dataset.userid
+            },
+            success: function(data) {
+              wx.showToast({
+                title: data.data.returnmsg,
+                icon: 'success',
+                duration: 2000,
+                success: function() {
+                  setTimeout(function() {
+                    wx.navigateBack({
+                      url: '../clientManage/clientManage',
+                    })
+                  }, 2000)
+                }
               })
-            }, 2000)
-          }
-        })
+            }
+          })
+        }
       }
     })
   },
-  doLogin:function (e){
+  doLogin: function(e) {
     var formObject = e.detail.value;
     var ghf_mc = formObject.ghf_mc;
     var ghf_nsrsbh = formObject.ghf_nsrsbh;
@@ -78,13 +94,13 @@ Page({
         ghf_email: ghf_email,
         id: formObject.id
       },
-      success: function (data) {
+      success: function(data) {
         wx.showToast({
           title: data.data.returnmsg,
           icon: 'success',
           duration: 2000,
-          success: function () {
-            setTimeout(function () {
+          success: function() {
+            setTimeout(function() {
               wx.navigateBack({
                 url: '../clientManage/clientManage',
               })
@@ -97,49 +113,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

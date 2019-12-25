@@ -45,7 +45,8 @@ Page({
   bianji: function(event) {
     console.log(event.currentTarget.dataset.bean.ghf_mc);
     wx.navigateTo({
-      url: '../clientManage/addClient/bianji?ghf_mc=' + event.currentTarget.dataset.bean.ghf_mc + '&ghf_nsrsbh=' + event.currentTarget.dataset.bean.ghf_nsrsbh + '&ghf_dzdh=' + event.currentTarget.dataset.bean.ghf_dzdh + '&ghf_yhzh=' + event.currentTarget.dataset.bean.ghf_yhzh + '&id=' + event.currentTarget.dataset.bean.id + '',
+      url: '../clientManage/addClient/bianji?ghf_mc=' + event.currentTarget.dataset.bean.ghf_mc + '&ghf_nsrsbh=' + event.currentTarget.dataset.bean.ghf_nsrsbh + '&ghf_dzdh=' + event.currentTarget.dataset.bean.ghf_dzdh + '&ghf_yhzh=' + event.currentTarget.dataset.bean.ghf_yhzh + '&id=' + event.currentTarget.dataset.bean.id + '&ghf_sj=' + event.currentTarget.dataset.bean.ghf_sj + '&ghf_email='+
+        event.currentTarget.dataset.bean.ghf_email
     })
 
   },

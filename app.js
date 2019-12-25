@@ -5,7 +5,6 @@ App({
   serverUrl:"https://www.gzhtjs.com.cn/yanyeSystem",
   openid:"",
   username:"",
-  password:"",
   isOpenBtn:true,
   onLaunch: function () {
     // 登录

@@ -1,7 +1,7 @@
 /* pages/clientManage/addClient/addClient.wxss */
-.add-container{
+/* .add-container{
   padding: 0 10rpx 0 10rpx;
-}
+} */
 .topNav {
   display: flex;
   flex-direction: row;
@@ -13,10 +13,10 @@
   align-items: center;
 }
 .topNav text{
-  margin-right: 220rpx;
+  margin-right: 298rpx;
 }
 .icon-arrow-left {
-  margin-left: 10rpx;
+  margin-left: 20rpx;
 }
 /* 表单 */
 .uni-form-item{

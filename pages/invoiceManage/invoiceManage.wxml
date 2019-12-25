@@ -16,7 +16,7 @@
   </view>
 
   <view class="wrap" style="margin-left: 0px;margin-right: 0px;">
-				<block class="div-table" wx:for="{{tableList}}" wx:key="*this" wx:for-item="item">
+				<block class="div-table" wx:for="{{tableList}}" wx:key="{{item.ddh}}" wx:for-item="item">
             <view bindtap="mingxi" data-bean="{{item}}">
 						    <template is="invoiceListTemplate" data="{{...item}}"></template>
             </view>

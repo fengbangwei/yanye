@@ -1,4 +1,5 @@
 // pages/clientManage/addClient/addClient.js
+var util = require('../../../utils/util.js');
 const app = getApp()
 Page({
 
@@ -35,16 +36,15 @@ Page({
     var ghf_email = formObject.ghf_email;
     var ghf_dzdh = formObject.ghf_dzdh;
     var ghf_yhzh = formObject.ghf_yhzh;
-    if (ghf_mc==""){
-      wx.showToast({
-        title: "购货名不能为空",
-        icon: 'loading',
-        duration: 2000,
-        success: function () {
-          
-        }
-      })
-    }else{
+    let data = {
+      ghf_mc: ghf_mc,
+      ghf_nsrsbh: ghf_nsrsbh,
+      ghf_sj: ghf_sj,
+      ghf_email: ghf_email,
+      ghf_dzdh: ghf_dzdh,
+      ghf_yhzh: ghf_yhzh
+    };
+    if (this.checkData(data)){
       wx.request({
         url: "https://www.gzdzfpy.com.cn/yanyeSystem/addnewCustomer",
         header: {
@@ -52,14 +52,7 @@ Page({
           'username': app.username
         },
         method: 'POST',
-        data: {
-          ghf_mc: ghf_mc,
-          ghf_nsrsbh: ghf_nsrsbh,
-          ghf_sj: ghf_sj,
-          ghf_email: ghf_email,
-          ghf_dzdh: ghf_dzdh,
-          ghf_yhzh: ghf_yhzh
-        },
+        data: data,
         success: function (data) {
           wx.showToast({
             title: data.data.returnmsg,
@@ -76,17 +69,35 @@ Page({
         }
       })
     }
-    
   },
-  /**ghf_mc: function (e) {
-    let ghf_mc = this.data
-    this.setData({
-      ghf_mc: e.detail.value
-    })
-    this.data.ghf_mc = e.detail.value;
-    console.log(e.detail.value)
-  },**/
-
+  checkData(data){
+    const phone = /(^$)|^1\d{10}$/;
+    const mailReg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+    if (data.ghf_mc == ''){
+      this.showTint("购货名称不能为空");
+      return false;
+    }
+    if (data.ghf_nsrsbh == '' || !util.checkTaxId(data.ghf_nsrsbh)) {
+      this.showTint("纳税人识别号为空或未正确填写");
+      return false;
+    }
+    if (!phone.test(data.ghf_sj) || data.ghf_sj == '') {
+      this.showTint("手机号码为空或未正确填写");
+      return false;
+    }
+    if (!mailReg.test(data.ghf_email) || data.ghf_email == '') {
+      this.showTint("邮箱为空或格式错误");
+      return false;
+    }
+    return true;
+  },
+  showTint(data) {
+    wx.showToast({
+      title: data,
+      icon: 'none',
+      duration: 2000
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

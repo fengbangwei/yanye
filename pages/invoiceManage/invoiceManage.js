@@ -159,7 +159,7 @@ Page({
       method: 'GET',
       success: function (data) {
         let _data = data.data;
-        
+        console.log(_data)
         for (var i = 0; i < _data.length;i++){
           console.log(that.data.tableList.date)
           var oldDate = data.data[i].date
