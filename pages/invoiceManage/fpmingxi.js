@@ -1,5 +1,5 @@
 // pages/clientManage/addClient/addClient.js
-import QRCode from '../../utils/qrcode.js';
+var QRCode = require('../../utils/qrcode.js')
 Page({
   /**
    * 页面的初始数据

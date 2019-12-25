@@ -28,7 +28,6 @@ Page({
     isSure: false
   },
   onLoad: function(options) {
-
   },
   backLeft: function() {
     wx.navigateBack({
@@ -76,12 +75,11 @@ Page({
       data: data,
       header: {
         'content-type': 'application/json;charset=UTF-8',
-        'username': 'liufangping'
+        'username': app.username
       },
       method: 'POST',
       dataType: 'json',
       success: function(res) {
-        console.log(res)
         if (res.data.result == 'WAIT' || res.data.result == 'SUCCESS') {
           wx.showToast({
             title: '申请开票成功',

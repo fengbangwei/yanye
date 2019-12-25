@@ -20,10 +20,12 @@
             </view>
 
             <!--按钮-->
-            <view>
+            <view wx:if="{{isOpenBtn}}">
                 <button class="loginBtn" type="primary" form-type='submit'>登录</button>
             </view>
-
+            <view wx:if="{{!isOpenBtn}}">
+                <button class="loginBtn" bindtap="exit" type="primary">注销</button>
+            </view>
             <!-- <view>
                 <button class="goRegistBtn" type="warn" bindtap="goRegistPage">没有账号？点击注册</button>
             </view> -->
