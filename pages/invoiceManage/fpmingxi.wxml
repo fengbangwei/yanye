@@ -38,5 +38,8 @@
       <view>{{tableList.fphm}}</view>
     </view>
   </view>
-  <canvas class="canvas-code"canvas-id="myQrcode" style="background:#fff;width: 200px;height: 200px;"/>
+  <view style="text-align:center;">
+    <canvas class="canvas-code"canvas-id="myQrcode" style="background:#fff;width: 200px;height: 200px;margin-left:22%;"/>
+    <view>请扫描二维码,领取发票</view>
+  </view>
 </view>

@@ -1,5 +1,5 @@
-// Core code comes from https://github.com/davidshimjs/qrcodejs
 var QRCode;
+
 (function () {
   /**
        * Get the type by string length
@@ -422,6 +422,4 @@ var QRCode;
   QRCode.CorrectLevel = QRErrorCorrectLevel;
 })();
 
-module.exports = {
-  QRCode: QRCode
-}
+module.exports = QRCode

@@ -34,36 +34,48 @@ Page({
     var ghf_email = formObject.ghf_email;
     var ghf_dzdh = formObject.ghf_dzdh;
     var ghf_yhzh = formObject.ghf_yhzh;
-    wx.request({
-      url: "https://www.gzdzfpy.com.cn/yanyeSystem/addnewCustomer",
-      header: {
-        'content-type': 'application/json',
-        'username': 'admin'
-      },
-      method: 'POST',
-      data: {
-        ghf_mc: ghf_mc,
-        ghf_nsrsbh: ghf_nsrsbh,
-        ghf_sj: ghf_sj,
-        ghf_email: ghf_email,
-        ghf_dzdh: ghf_dzdh,
-        ghf_yhzh: ghf_yhzh
-      },
-      success: function (data) {
-        wx.showToast({
-          title: data.data.returnmsg,
-          icon: 'success',
-          duration: 2000,
-          success:function(){
-            setTimeout(function () {
-              wx.navigateBack({
-                url: '../clientManage/clientManage',
-              })
-            }, 2000)
-          }
-        })
-      }
-    })
+    if (ghf_mc==""){
+      wx.showToast({
+        title: "购货名不能为空",
+        icon: 'loading',
+        duration: 2000,
+        success: function () {
+          
+        }
+      })
+    }else{
+      wx.request({
+        url: "https://www.gzdzfpy.com.cn/yanyeSystem/addnewCustomer",
+        header: {
+          'content-type': 'application/json',
+          'username': 'admin'
+        },
+        method: 'POST',
+        data: {
+          ghf_mc: ghf_mc,
+          ghf_nsrsbh: ghf_nsrsbh,
+          ghf_sj: ghf_sj,
+          ghf_email: ghf_email,
+          ghf_dzdh: ghf_dzdh,
+          ghf_yhzh: ghf_yhzh
+        },
+        success: function (data) {
+          wx.showToast({
+            title: data.data.returnmsg,
+            icon: 'success',
+            duration: 2000,
+            success: function () {
+              setTimeout(function () {
+                wx.navigateBack({
+                  url: '../clientManage/clientManage',
+                })
+              }, 2000)
+            }
+          })
+        }
+      })
+    }
+    
   },
   /**ghf_mc: function (e) {
     let ghf_mc = this.data
