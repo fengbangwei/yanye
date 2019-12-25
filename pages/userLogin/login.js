@@ -102,7 +102,9 @@ Page({
     app.username = "";
     app.password = "";
     this.setData({
-      isOpenBtn: app.isOpenBtn
+      isOpenBtn: app.isOpenBtn,
+      username: app.username,
+      password: app.password
     })
     wx.showToast({
       title: '注销成功',

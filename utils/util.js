@@ -18,6 +18,7 @@ function showTipModal(app,url){
     key: 'userInfo',
     success: function (res) {
       app.username = res.data.username;
+      app.password = res.data.password;
       app.isOpenBtn = false
       if(url != ''){
         wx.navigateTo({
