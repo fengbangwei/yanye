@@ -41,7 +41,7 @@ Page({
         console.log(res)
         if (res.confirm) {
           wx.request({
-            url: "https://www.gzdzfpy.com.cn/yanyeSystem/deleteCustomerInfoByid",
+            url: app.serverUrl + "/deleteCustomerInfoByid",
             header: {
               'content-type': 'application/json',
               'username': app.username
@@ -79,7 +79,7 @@ Page({
     var ghf_dzdh = formObject.ghf_dzdh;
     var ghf_yhzh = formObject.ghf_yhzh;
     wx.request({
-      url: "https://www.gzdzfpy.com.cn/yanyeSystem/updateCustomerByid",
+      url: app.serverUrl + "/updateCustomerByid",
       header: {
         'content-type': 'application/json',
         'username': app.username

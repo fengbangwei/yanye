@@ -46,7 +46,7 @@ Page({
     };
     if (this.checkData(data)){
       wx.request({
-        url: "https://www.gzdzfpy.com.cn/yanyeSystem/addnewCustomer",
+        url: app.serverUrl + "/addnewCustomer",
         header: {
           'content-type': 'application/json',
           'username': app.username

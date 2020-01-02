@@ -107,7 +107,7 @@ Page({
   onShow: function() {
     let that = this;
     wx.request({
-      url: "https://www.gzdzfpy.com.cn/yanyeSystem/findAllCustomerInfo",
+      url: app.serverUrl + "/findAllCustomerInfo",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
         'username': app.username
@@ -124,7 +124,7 @@ Page({
       console.log(e.detail.value)
       let that = this;
       wx.request({
-        url: "https://www.gzdzfpy.com.cn/yanyeSystem/findCustomerByLikename",
+        url: app.serverUrl + "/findCustomerByLikename",
         header: {
           'content-type': 'application/x-www-form-urlencoded',
           'username': app.username

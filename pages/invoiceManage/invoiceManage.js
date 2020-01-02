@@ -47,7 +47,7 @@ Page({
     this.setData({ date: e.detail.value });
     let that = this;
     wx.request({
-      url: "https://www.gzdzfpy.com.cn/yanyeSystem/findByLikeghfname?ghfmc=&date=" + e.detail.value + "",
+      url: app.serverUrl + "/findByLikeghfname?ghfmc=&date=" + e.detail.value + "",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
         'username': app.username
@@ -75,7 +75,7 @@ Page({
   sousuo: function (e) {
     let that = this;   
     wx.request({
-      url: "https://www.gzdzfpy.com.cn/yanyeSystem/findByLikeghfname?ghfmc=" + e.detail.value + "&date=" + that.data.date+"",
+      url: app.serverUrl + "/findByLikeghfname?ghfmc=" + e.detail.value + "&date=" + that.data.date+"",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
         'username': app.username
@@ -151,7 +151,7 @@ Page({
     })
     let that = this;
     wx.request({
-      url: "https://www.gzdzfpy.com.cn/yanyeSystem/findByLikeghfname?ghfmc=&date="+time+"",
+      url: app.serverUrl + "/findByLikeghfname?ghfmc=&date="+time+"",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
         'username': app.username
